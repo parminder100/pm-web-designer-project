@@ -1,0 +1,81 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,ul,p{
+    margin-bottom: 0px;
+}
+header{
+    padding:10px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    color:#fff;
+    z-index: 1000;
+}
+.header-scrolled{
+    background-color: #000;
+    transition: background-color 0.5s ease;
+}
+.header-row{
+    align-items: center;
+}
+.logo{
+    width: 60px;
+}
+.navbar-nav{
+    gap:30px;
+    font-weight: 600;
+}
+.navbar{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.company-name{
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.right-column{
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar .navbar-nav .nav-item a{
+    color: #fff;
+}
+
+
+
+@media (max-width: 575.98px) {
+    .left-column{
+        width: 50%;
+    }
+    .right-column{
+        width: 50%;
+        margin-top: 11px;
+    }
+    .header-row{
+        align-items: flex-start;
+    }
+    .navbar{
+        text-align: end;
+    }
+    .navbar-toggler{
+        margin-left: auto;
+    }
+    .navbar .navbar-toggler{
+        background-color: #fff;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .header-row{
+        align-items: flex-start;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .header-row{
+        align-items: flex-start;
+    }
+}

@@ -314,6 +314,97 @@
 /* What Services Section End */
 
 
+/* Our Portfolio Start */
+.our-portfolio-section{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    position: relative;
+}
+.project-section-bg1{
+    position: absolute;
+    right: 0px;
+    z-index: -1;
+    height: -webkit-fill-available;
+}
+.project-section-bg2{
+    position: absolute;
+    left: 20px;
+    bottom: 0px;
+    z-index: -1;
+    height: -webkit-fill-available;
+}
+.portfolio-section-title-content{
+    text-align: center;
+    margin-bottom: 60px;
+}
+.portfolio-section-title{
+    font-size: 16px;
+    font-weight: 500;
+    color: #ff7342;
+    background-color: rgba(255,76,76,.1);
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.portfolio-section-title-heading{
+    font-size: 41px;
+    font-weight: 700;
+    color: #18212e;
+    margin-bottom: 15px;
+}
+.portfolio-section-title-description{
+    font-size: 16px;
+    font-weight: 400;
+    color: #676767;
+}
+.pokedex-project-image{
+    width: 100%;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    transition: all .5s ease-in-out 25ms;
+}
+.project-content{
+    padding: 30px 25px;
+    background: #fff;
+    box-shadow: 3px 0 10px hsla(0,0%,53%,.5);
+    border-radius: 0 0 8px 8px;
+}
+.project-name{
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+.project-description{
+    margin-bottom: 15px;
+}
+.readmore-btn{
+    background: linear-gradient(#ffb971,#ffb971);
+    border-width: 0px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.pokedex-project-content:hover .pokedex-image .pokedex-project-image{
+    transform: scale(1.2);
+}
+.pokedex-project-content .pokedex-image{
+    overflow: hidden;
+}
+.project-live-link{
+    margin-bottom: 15px;
+}
+.project-live-link a{
+    text-decoration: none;
+}
+.project-view-more-btn{
+    text-align: center;
+    padding-top: 30px;
+}
+/* Our Portfolio End */
+
+
 
 
 @media (max-width: 575.98px) {
@@ -371,6 +462,13 @@
         padding-top: 120px;
     }
     /* Our Best Services End */
+
+    /* Our Portfolio Start */
+    .project-section-bg2{
+        width: 100%;
+        left:0px;
+    }
+    /* Our Portfolio End */
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -438,7 +536,23 @@
     .service-description{
         font-size: 15px;
     }
+    .our-services-row{
+        justify-content: center;
+    }
     /* Our Best Services End */
+
+    /* Our Portfolio Start */
+    .project-section-bg2{
+        width: 100%;
+        left:0px;
+    }
+    .our-project-row .our-project-content{
+        width: 50%;
+    }
+    .our-project-row{
+        justify-content: center;
+    }
+    /* Our Portfolio End */
 }
 
 
@@ -502,6 +616,16 @@
         font-size: 15px;
     }
     /* Our Best Services End */
+
+    /* Our Portfolio Start */
+    .project-section-bg2{
+        width: 100%;
+        left:0px;
+    }
+    .project-description{
+        font-size: 17px;
+    }
+    /* Our Portfolio End */
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -527,4 +651,14 @@
         right: 7px;
     }
     /* About Section End */
+
+
+    /* Our Best Services Start */
+    .service-content h4{
+        font-size: 23px;
+    }
+    .service-description{
+        font-size: 18px;
+    }
+    /* Our Best Services End */
 }

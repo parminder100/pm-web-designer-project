@@ -12,8 +12,11 @@ import sun_icon from "../../assets/img/sun_icon.svg";
 import about_dot from "../../assets/img/about_dot.svg";
 import about_triangle from "../../assets/img/about_triangle.svg";
 import { ourServicesData } from "../OurServicesData/OurServicesData";
+import { PortfolioData } from "../PortfolioData/PortfolioData";
 import about_service_water_mark1 from "../../assets/img/about_service_water_mark1.png";
 import about_service_water_mark2 from "../../assets/img/about_service_water_mark2.png";
+import project_section_bg1 from "../../assets/img/project_section_bg1.png";
+import project_section_bg2 from "../../assets/img/project_section_bg2.png";
 
 const Banner = () =>{
     return(
@@ -108,7 +111,7 @@ const Banner = () =>{
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row our-services-row">
                         {
                             ourServicesData.map((item,index)=>(
                                 <div className="col-sm-4 col-md-4 our-services-col mb-4" key={index}>
@@ -127,11 +130,54 @@ const Banner = () =>{
                                 </div>
                             ))
                         }
-                        <div className="col-md-4 d-md-none d-sm-block"></div>
                     </div>
                 </div>
             </section>
             {/* What Services Section End */}
+
+            {/* Our Portfolio Start */}
+            <section className="our-portfolio-section">
+                <img className="project-section-bg1" src={project_section_bg1} alt="project-section-bg1" />
+                <img className="project-section-bg2" src={project_section_bg2} alt="project-section-bg2" />
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-sm-8">
+                            <div className="portfolio-section-title-content">
+                                <p className="portfolio-section-title">-Portfolio-</p>
+                                <h3 className="portfolio-section-title-heading">Designs That Click, Solutions That Stick</h3>
+                                <p className="portfolio-section-title-description">
+                                    Explore our portfolio, a mosaic of high-performance websites 
+                                    reflecting our commitment to creating digital solutions that 
+                                    not only impress but also drive results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row our-project-row">
+                        {
+                            PortfolioData.map((item) =>(
+                                <div className="col-sm-4 our-project-content mb-4">
+                                    <div className="pokedex-project-content">
+                                        <div className="pokedex-image">
+                                            <img className="pokedex-project-image" src={item.projectImage} alt="pokedex-project" />
+                                        </div>
+                                        <div className="project-content">
+                                            <p className="project-name">{item.projectName}</p>
+                                            <p className="project-description">{item.projectDescription}</p>
+                                            <p className="project-live-link"><a href={item.projectLiveLink} target="_blank" rel="noopener noreferrer">Live Preview</a></p>
+                                            <button className="readmore-btn">Read More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                        <div className="project-view-more-btn">
+                            <button className="readmore-btn">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* Our Portfolio End */}
         </>
     )
 }

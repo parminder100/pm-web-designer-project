@@ -68,14 +68,46 @@ header{
 
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar .navbar-toggler{
+        background-color: #fff;
+    }
+    .left-column{
+        width: 50%;
+    }
+    .right-column{
+        width: 50%;
+        margin-top: 11px;
+    }
     .header-row{
         align-items: flex-start;
+    }
+    .navbar{
+        text-align: end;
+    }
+    .navbar-toggler{
+        margin-left: auto;
     }
 }
 
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar .navbar-toggler{
+        background-color: #fff;
+    }
+    .left-column{
+        width: 50%;
+    }
+    .right-column{
+        width: 50%;
+        margin-top: 11px;
+    }
     .header-row{
         align-items: flex-start;
+    }
+    .navbar{
+        text-align: end;
+    }
+    .navbar-toggler{
+        margin-left: auto;
     }
 }

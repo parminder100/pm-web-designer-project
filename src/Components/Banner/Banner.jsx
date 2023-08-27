@@ -17,8 +17,41 @@ import about_service_water_mark1 from "../../assets/img/about_service_water_mark
 import about_service_water_mark2 from "../../assets/img/about_service_water_mark2.png";
 import project_section_bg1 from "../../assets/img/project_section_bg1.png";
 import project_section_bg2 from "../../assets/img/project_section_bg2.png";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { TestimonialData } from "../TestimonialData/TestimonialData";
+import {useRef} from 'react';
 
 const Banner = () =>{
+    const carouselRef = useRef(null);
+
+    const options = {
+        items: 2, // Number of items to show at a time
+        // loop: true, // Infinite loop
+        autoplay: true, // Auto play
+        autoplayTimeout: 3000, // Autoplay interval in milliseconds
+        responsive: {
+            0: {
+                items: 1 // Number of items to show at different breakpoints
+            },
+            768: {
+                items: 2
+            },
+        }
+    };
+
+    const handlePrevClick = () => {
+        if (carouselRef.current) {
+            carouselRef.current.prev();
+        }
+    };
+
+    const handleNextClick = () => {
+        if (carouselRef.current) {
+            carouselRef.current.next();
+        }
+    };
     return(
         <>
             {/* Banner Start */}
@@ -155,8 +188,8 @@ const Banner = () =>{
                     </div>
                     <div className="row our-project-row">
                         {
-                            PortfolioData.map((item) =>(
-                                <div className="col-sm-4 our-project-content mb-4">
+                            PortfolioData.map((item,id) =>(
+                                <div key={id} className="col-sm-4 our-project-content mb-4">
                                     <div className="pokedex-project-content">
                                         <div className="pokedex-image">
                                             <img className="pokedex-project-image" src={item.projectImage} alt="pokedex-project" />
@@ -178,6 +211,53 @@ const Banner = () =>{
                 </div>
             </section>
             {/* Our Portfolio End */}
+
+            {/* Testimonial Start */}
+            <section className="testimonial-section">
+                <img className="project-section-bg1 testimonial-section-bg1" src={project_section_bg1} alt="project-section-bg1" />
+                <img className="project-section-bg2 testimonial-section-bg2" src={project_section_bg2} alt="project-section-bg2" />
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-sm-8">
+                            <div className="testimonial-section-title-content">
+                                <p className="testimonial-section-title">-Testimonial-</p>
+                                <h3 className="testimonial-section-title-heading">What They’re Saying</h3>
+                                <p className="testimonial-section-title-description">Trust narrated by our clients in their own words – a testament to PM Web Development's commitment to building strong partnerships and impressive digital solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row owl-row">
+                        <OwlCarousel className='owl-theme' margin={10} loop ref={carouselRef} {...options}>
+                            {
+                                TestimonialData.map((item,id)=>(
+                                    <div key={id} className="testimonial-content">
+                                        <img className="testimonial-quote-icon" src={item.testimonialQuoteIcon} alt="testimonial-quote-icon" />
+                                        <div className="testimonial-image">
+                                            <img src={item.testimonialImage} alt="testimonial_image1" />
+                                        </div>
+                                        <div className="testimonial-details">
+                                            <div className="testimonial-designation">
+                                                <h5>{item.testimonialName}</h5>
+                                                <p>{item.testimonialDesignation}</p>
+                                            </div>
+                                            <p>{item.testimonialDescription}</p>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </OwlCarousel>
+                        <div className="owl-navigation">
+                            <div className="owl-nav-prev" onClick={handlePrevClick}>
+                                <i className="fa fa-long-arrow-left"></i>
+                            </div>
+                            <div className="owl-nav-next" onClick={handleNextClick}>
+                                <i className="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* Testimonial End */}
         </>
     )
 }

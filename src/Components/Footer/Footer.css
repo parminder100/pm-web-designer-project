@@ -1,0 +1,122 @@
+footer{
+    background-image: linear-gradient(rgba(18,19,24,.9),rgba(18,19,24,.9)),url("../../assets/img/footer_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.footer-top{
+    padding: 90px 0px 30px 0px;
+}
+.footer-item p{
+    color: #fff;
+    margin-top: 20px;
+}
+.footer-item h5{
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 37px;
+}
+.footer-list{
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+.footer-list li{
+    margin-bottom: 15px;
+    transition: all .4s ease-in;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+}
+.footer-item .footer-list li::before{
+    content: "\f138";
+    font-family: bootstrap-icons;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #e67c3c;
+    opacity: 0;
+    transition: all .65s ease;
+}
+.footer-item .footer-list li:hover{
+    padding-left: 20px;
+    color: #e67c3c;
+}
+.footer-item .footer-list li:hover::before{
+    opacity: 1;
+}
+.address-list{
+    padding-inline-start: 0px;
+}
+.address-list li{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.address-list li svg {
+    fill: #e67c3c; 
+    margin-top: 6px;
+}
+.address-list li a{
+    color: #fff;
+    text-decoration: unset;
+    padding-left: 10px;
+}
+.footer-bottom{
+    padding: 15px 0;
+    border-top: 1px solid #2f2f2f;
+}
+.copy-right{
+    font-size: 14px;
+    color: #fff;
+}
+.privay-policy{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: flex-end;
+    padding-inline-start: 0px;
+}
+.privay-policy li:first-child a{
+    position: relative;
+    padding-right: 15px;
+    margin-right: 15px;
+}
+.privay-policy li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer-row{
+    align-items: baseline;
+}
+.privay-policy li:first-child a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 15px;
+    background: #fff;
+}
+
+
+
+@media (max-width: 575.98px) {
+    .privay-policy{
+        justify-content: flex-start;
+    }
+    .copy-right{
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .row .footer-col{
+        width: 50%;
+    }
+}

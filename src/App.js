@@ -1,11 +1,9 @@
-import Banner from './Components/Banner/Banner';
-import Header from './Components/Header/Header';
+import Route from './Components/Pages/Routes/Route';
 
 function App() {
   return (
       <>
-        <Header />
-        <Banner />
+        <Route />
       </>
   );
 }

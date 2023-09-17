@@ -56,3 +56,58 @@
     font-size: 24px;
     font-weight: 600;
 }
+
+
+/* Media Queries Start */
+@media (max-width: 575.98px) {
+    .aboutus-banner-content {
+        transform: translate(0px, 210px);
+    }
+    .our-journey-image{
+        order: 1;
+    }
+    .our-mission-image{
+        order:2;
+    }
+    .why-choose-us-content{
+        order: 2;
+    }
+    .our-journey-content{
+        order: 2;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .aboutus-col{
+        width: 100%;
+    }
+    .our-journey-image{
+        order: 1;
+    }
+    .our-mission-image{
+        order:2;
+    }
+    .why-choose-us-content{
+        order: 2;
+    }
+    .our-journey-content{
+        order: 2;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .aboutus-col{
+        width: 100%;
+    }
+    .our-journey-image{
+        order: 1;
+    }
+    .our-mission-image{
+        order:2;
+    }
+    .why-choose-us-content{
+        order: 2;
+    }
+    .our-journey-content{
+        order: 2;
+    }
+}
+/* Media Queries End */

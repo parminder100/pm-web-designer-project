@@ -52,12 +52,12 @@ const AboutUs = () =>{
                                     <img className="w-100" src={aboutus_image} alt="aboutus_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col our-journey-image">
                                 <div>
                                     <img className="w-100" src={our_journey_image} alt="our_journey_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col our-journey-content">
                                 <p className="testimonial-section-title blog-section-title our-journey-title mb-4">-Our Journey-</p>
                                 <p className="aboutus-company-description">
                                     PM Web Development started as a modest team of passionate developers who 
@@ -88,12 +88,12 @@ const AboutUs = () =>{
                                     not only survive but thrive in this dynamic ecosystem.
                                 </p>
                             </div>
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col our-mission-image">
                                 <div>
                                     <img className="w-100" src={our_mission_image} alt="our_mission_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 why-choose-us-content">
                                 <p className="portfolio-section-title our-journey-title mb-4">-Why Choose Us?-</p>
                                 <ul className="why-choose-us-list">
                                     <li>

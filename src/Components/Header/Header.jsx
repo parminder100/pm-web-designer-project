@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import registered_logo from "../../assets/img/registered_logo.png"; 
@@ -7,6 +7,11 @@ import "../Header/Header.css";
 
 const Header = () =>{
     const [scrolled, setScrolled] = useState(false);
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+    const handleNavbarToggle = () =>{
+        setIsNavbarOpen(!isNavbarOpen);
+    }
 
     useEffect(()=>{
         const handleScroll = () =>{
@@ -37,10 +42,10 @@ const Header = () =>{
                         <div className="col-sm-6 right-column">
                             <nav className="navbar navbar-expand-lg">
                                 <div>
-                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <button className={`navbar-toggler ${isNavbarOpen ? 'collapsed' : ''}`} type="button" onClick={handleNavbarToggle}>
                                     <span className="navbar-toggler-icon"></span>
                                     </button>
-                                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <div className={`navbar-collapse ${isNavbarOpen ? 'show' : 'collapse'}`}>
                                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li className="nav-item">
                                             <a className="nav-link active" aria-current="page" href="/">Home</a>

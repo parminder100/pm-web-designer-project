@@ -673,6 +673,19 @@
     font-size: 14px;
     color: #676767;
 }
+.blog-readmore-btn{
+    margin-top: 10px;
+    color: #E67C3C;
+    font-weight: 600;
+    cursor: pointer;
+}
+.blog-readmore-btn:hover{
+    color: #000;
+}
+.readmore-btn a{
+    color: unset;
+    text-decoration: none;
+}
 /* Blog End */
 
 

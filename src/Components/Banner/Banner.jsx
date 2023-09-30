@@ -1,4 +1,6 @@
 import "../Banner/Banner.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import Header from "../Header/Header";
 import banner_skills_image from "../../assets/img/banner_skills_image.png";
 import banner_spring1 from "../../assets/img/banner_spring1.png";
@@ -28,9 +30,31 @@ import work_process_image1 from "../../assets/icon/work_process_image1.svg";
 import work_process_image2 from "../../assets/icon/work_process_image2.svg";
 import work_process_image3 from "../../assets/icon/work_process_image3.svg";
 import work_process_image4 from "../../assets/icon/work_process_image4.svg";
+import BlogModal from "../BlogModal/BlogModal";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import Footer from "../Footer/Footer";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () =>{
+    const [showModal, setShowModal] = useState(false);
+    const [selectedBlog, setSelectedBlog] = useState(null);
+
+    const handleModalOpen = (item) =>{
+        setShowModal(true);
+        setSelectedBlog(item);
+        document.body.classList.add('modal-open');
+        console.log("modal opened");
+    }
+
+    const handleModalClose = () =>{
+        setShowModal(false);
+        document.body.classList.remove('modal-open');
+    }
+
+    const filteredBlogData = BlogData.filter((item)=> item.id < 4)
+
     const carouselRef = useRef(null);
 
     const options = {
@@ -332,7 +356,7 @@ const Banner = () =>{
                         </div>
                         <div className="row blog-main-content-row">
                             {
-                                BlogData.map((item, id)=>(
+                                filteredBlogData.map((item, id)=>(
                                     <div key={id} className="col-sm-4 blog-main-content-column mb-4">
                                         <div className="blog-main-content">
                                             <div className="blog-image">
@@ -342,6 +366,7 @@ const Banner = () =>{
                                                 <p className="blog-content-section-title">{item.blogTitle}</p>
                                                 <h4 className="blog-heading">{item.blogHeading}</h4>
                                                 <p className="blog-description">{item.blogDescription}</p>
+                                                <p className="blog-readmore-btn" onClick={()=>handleModalOpen(item)}>{item.blogReadMoreBtn}</p>
                                                 <div className="blog-user">
                                                     <div className="author-img">
                                                         <img className="blog-user-image" src={item.blogUserImage} alt="testimonial1" />
@@ -356,9 +381,10 @@ const Banner = () =>{
                                     </div>
                                 ))
                             }
-                            <div class="project-view-more-btn"><button class="readmore-btn">View More</button></div>
+                            <div class="project-view-more-btn"><Link to="/blog"><button class="readmore-btn">View More</button></Link></div>
                         </div>
                     </div>
+                    <BlogModal show={showModal} onClose={handleModalClose} selectedBlog={selectedBlog} />
                 </section>
                 {/* Blog End */}
             </main>

@@ -1,0 +1,33 @@
+.blog-banner{
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("../../../assets/img/blog_banner.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 420px;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/* Media Queries Start */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .blog-description{
+        font-size: 14px;
+    }
+    .blog-modal-heading{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .blog-description{
+        font-size: 14px;
+    }
+    .blog-modal-heading{
+        font-size: 14px;
+    }
+    .blog-modal-title{
+        font-size: 14px;
+    }
+}
+/* Media Queries End */

@@ -1,7 +1,7 @@
 import Header from "../../Header/Header";
 import { BlogData } from "../../BlogData/BlogData";
 import BlogModal from "../../BlogModal/BlogModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../Footer/Footer";
 import aboutus_dot from "../../../assets/img/aboutus_dot.png";
 import aboutus_bannerwave from "../../../assets/img/aboutus_bannerwave.png";
@@ -22,6 +22,14 @@ const Blog = () =>{
         setShowModal(false);
         document.body.classList.remove('modal-open');
     }
+
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+        });
+    }, []);
 
     const filterBlogData = BlogData.filter((item)=> item.id >=4);
     return(

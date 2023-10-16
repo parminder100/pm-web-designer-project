@@ -35,11 +35,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import Footer from "../Footer/Footer";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import PortfolioModal from "../PortfolioModal/PortfolioModal";
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () =>{
     const [showModal, setShowModal] = useState(false);
     const [selectedBlog, setSelectedBlog] = useState(null);
+
+    const [showPortfolioModal, setShowPortfolioModal] = useState(false);
+    const [selectedPortfolio, setSelectedPortfolio] = useState(null);
+
+    const handlePortfolioModalOpen = (item) =>{
+        setShowPortfolioModal(true);
+        setSelectedPortfolio(item);
+        document.body.classList.add('modal-open');
+        console.log('modal opened');
+    }
+
+    const handlePortfolioModalClose = () =>{
+        setShowPortfolioModal(false);
+        document.body.classList.remove('modal-open');
+    }
 
     const handleModalOpen = (item) =>{
         setShowModal(true);
@@ -53,7 +69,9 @@ const Banner = () =>{
         document.body.classList.remove('modal-open');
     }
 
-    const filteredBlogData = BlogData.filter((item)=> item.id < 4)
+    const filteredBlogData = BlogData.filter((item)=> item.id < 4);
+
+    const filteredPortfolioData = PortfolioData.filter((item)=>item.id < 4);
 
     const carouselRef = useRef(null);
 
@@ -83,6 +101,17 @@ const Banner = () =>{
             carouselRef.current.next();
         }
     };
+
+    const navigate = useNavigate();
+
+    const navigateToBlog = () =>{
+        navigate("/Blog");
+    }
+
+    const navigateToPortfolio = () =>{
+        // window.scrollTo(0, 0);
+        navigate("/portfolio");
+    }
     return(
         <>
             {/* Header Start */}
@@ -271,7 +300,7 @@ const Banner = () =>{
                         </div>
                         <div className="row our-project-row">
                             {
-                                PortfolioData.map((item,id) =>(
+                                filteredPortfolioData.map((item,id) =>(
                                     <div key={id} className="col-sm-4 our-project-content mb-4">
                                         <div className="pokedex-project-content">
                                             <div className="pokedex-image">
@@ -281,14 +310,14 @@ const Banner = () =>{
                                                 <p className="project-name">{item.projectName}</p>
                                                 <p className="project-description">{item.projectDescription}</p>
                                                 <p className="project-live-link"><a href={item.projectLiveLink} target="_blank" rel="noopener noreferrer">Live Preview</a></p>
-                                                <button className="readmore-btn">Read More</button>
+                                                <button className="readmore-btn" onClick={()=>handlePortfolioModalOpen(item)}>Read More</button>
                                             </div>
                                         </div>
                                     </div>
                                 ))
                             }
                             <div className="project-view-more-btn">
-                                <button className="readmore-btn">View More</button>
+                                <button className="readmore-btn" onClick={navigateToPortfolio}>View More</button>
                             </div>
                         </div>
                     </div>
@@ -381,10 +410,11 @@ const Banner = () =>{
                                     </div>
                                 ))
                             }
-                            <div class="project-view-more-btn"><Link to="/blog"><button class="readmore-btn">View More</button></Link></div>
+                            <div class="project-view-more-btn"><button class="readmore-btn" onClick={navigateToBlog}>View More</button></div>
                         </div>
                     </div>
                     <BlogModal show={showModal} onClose={handleModalClose} selectedBlog={selectedBlog} />
+                    <PortfolioModal show={showPortfolioModal} onClose={handlePortfolioModalClose} selectedPortfolio={selectedPortfolio} />
                 </section>
                 {/* Blog End */}
             </main>

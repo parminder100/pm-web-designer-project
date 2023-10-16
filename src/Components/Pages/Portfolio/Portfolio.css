@@ -1,0 +1,9 @@
+.portfolio-banner{
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("../../../assets/img/portfolion_banner.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 420px;
+    background-size: cover;
+    background-position: center center;
+}

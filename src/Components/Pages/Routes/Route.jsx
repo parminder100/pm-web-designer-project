@@ -3,6 +3,7 @@ import Banner from "../../Banner/Banner";
 import AboutUs from "../AboutUs/AboutUs";
 import Blog from "../Blog/Blog";
 import ContactUs from "../ContactUs/ContactUs";
+import Portfolio from "../Portfolio/Portfolio";
 
 const Pages = () =>{
     return(
@@ -11,6 +12,7 @@ const Pages = () =>{
                 <Routes>
                     <Route path="/" element={<Banner />} />
                     <Route path="/aboutus" element={<AboutUs />} />
+                    <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/Blog" element={<Blog />} />
                     <Route path="/contactus" element={<ContactUs />} />
                 </Routes>

@@ -89,8 +89,8 @@ const Blog = () =>{
                     </div>
                 </div>
             </section>
-            <section className="blog-section" ref={sectionRefs.blogSection}>
-                <div className="container">
+            <section className="blog-section">
+                <div className="container blog-section-container" ref={sectionRefs.blogSection}>
                     <div className="row blog-main-content-row">
                         {
                             filterBlogData.map((item, id)=>(

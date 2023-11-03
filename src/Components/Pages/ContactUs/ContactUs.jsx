@@ -9,6 +9,16 @@ import { useEffect, useRef } from "react";
 
 const ContactUs = () =>{
 
+
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+        });
+    }, []);
+
+
     // For section display on scroll
     // eslint-disable-next-line
     const sectionRefs = {

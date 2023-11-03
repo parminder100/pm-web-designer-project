@@ -9,6 +9,16 @@ import Footer from "../../Footer/Footer";
 import { useEffect, useRef } from 'react';
 
 const AboutUs = () =>{
+
+
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+        });
+    }, []);
+
     // eslint-disable-next-line
     const sectionRefs = {
         // Add refs for all your sections

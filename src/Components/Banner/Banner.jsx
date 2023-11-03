@@ -160,6 +160,15 @@ const Banner = () =>{
           observer.disconnect();
         };
     }, [sectionRefs]);
+
+
+    useEffect(() => {
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant',
+        });
+    }, []);
       
     return(
         <>
@@ -425,8 +434,8 @@ const Banner = () =>{
                 {/* Testimonial End */}
 
                 {/* Blog Start */}
-                <section className="blog-section" ref={sectionRefs.blogSection}>
-                    <div className="container">
+                <section className="blog-section">
+                    <div className="container blog-section-container" ref={sectionRefs.blogSection}>
                         <div className="row justify-content-center">
                             <div className="col-sm-8">
                                 <div className="testimonial-section-title-content">

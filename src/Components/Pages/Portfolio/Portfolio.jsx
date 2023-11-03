@@ -69,7 +69,7 @@ const Portfolio = () =>{
         const options = {
           root: null,
           rootMargin: '0px',
-          threshold: 0.1, // Adjust this threshold as needed
+          threshold: 0, // Adjust this threshold as needed
         };
     
         const callback = (entries) => {
@@ -114,8 +114,8 @@ const Portfolio = () =>{
                     </div>
                 </div>
             </section>
-            <section className="blog-section" ref={sectionRefs.portfolioSection}>
-                <div className="container">
+            <section className="blog-section">
+                <div className="container blog-section-container" ref={sectionRefs.portfolioSection}>
                     <div className="row g-3 align-items-center justify-content-center mb-5">
                         <div className="col-auto">
                             <label htmlFor="searchProject" className="col-form-label">Search Project</label>

@@ -3,6 +3,13 @@ footer{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.animate-slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 .footer-top{
     padding: 90px 0px 30px 0px;
@@ -101,6 +108,10 @@ footer{
     width: 2px;
     height: 15px;
     background: #fff;
+}
+.footer-list li a{
+    color: unset;
+    text-decoration: none;
 }
 
 

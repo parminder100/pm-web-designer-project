@@ -5,8 +5,51 @@ import contactus2 from "../../../assets/img/contactus2.png";
 import "../../Pages/ContactUs/ContactUs.css";
 import aboutus_dot from "../../../assets/img/aboutus_dot.png";
 import aboutus_bannerwave from "../../../assets/img/aboutus_bannerwave.png";
+import { useEffect, useRef } from "react";
 
 const ContactUs = () =>{
+
+    // For section display on scroll
+    // eslint-disable-next-line
+    const sectionRefs = {
+        // Add refs for all your sections
+        contactUsSection: useRef(),
+    };
+
+    useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1, // Adjust this threshold as needed
+        };
+    
+        const callback = (entries) => {
+          entries.forEach((entry) => {
+            const { target, isIntersecting } = entry;
+    
+            if (isIntersecting) {
+              target.classList.add('animate-slide-up');
+            } else {
+              target.classList.remove('animate-slide-up');
+            }
+          });
+        };
+    
+        const observer = new IntersectionObserver(callback, options);
+    
+        // Observe all the section elements
+        Object.keys(sectionRefs).forEach((sectionKey) => {
+          const section = sectionRefs[sectionKey].current;
+          if (section) {
+            observer.observe(section);
+          }
+        });
+    
+        return () => {
+          // Clean up the observer when the component unmounts
+          observer.disconnect();
+        };
+    }, [sectionRefs]);
     return(
         <>
             <Header />
@@ -22,7 +65,7 @@ const ContactUs = () =>{
                         </div>
                     </div>
                 </section>
-                <section className="contactus-bg">
+                <section className="contactus-bg" ref={sectionRefs.contactUsSection}>
                     <div className="container contactus_container">
                         <div className="row">
                             <div className="col-sm-6 contact-column">
@@ -35,11 +78,16 @@ const ContactUs = () =>{
                                     </div>
                                     <div className="d-flex align-items-baseline text-white">
                                         <i className="fa fa-envelope"></i>
-                                        <p className="mobile-number">demo@gmail.com</p>
+                                        <a href="mailto:jdkdkdkd123789@gmail.com">
+                                            <p className="mobile-number">jdkdkdkd123789@gmail.com</p>
+                                        </a>
                                     </div>
-                                    <div className="d-flex align-items-baseline text-white map-marker-icon">
+                                    <div className="d-flex align-items-baseline text-white">
                                         <i className="fa fa-map-marker"></i>
                                         <p className="mobile-number">132 Dartmouth Street Boston,<br /> Massachusetts 02156 United States</p>
+                                    </div>
+                                    <div className="map-marker-icon text-white">
+                                        <p>To contact us simply mail us to <a href="mailto:jdkdkdkd123789@gmail.com">jdkdkdkd123789@gmail.com</a></p>
                                     </div>
                                     {/* <div className="d-flex social-media-icon">
                                         <div className="twitter-icon">
@@ -91,7 +139,9 @@ const ContactUs = () =>{
                                                 </div>
                                             </div>
                                             <div className="text-end">
-                                                <button className="submit-btn">Submit</button>
+                                                <a href="mailto:jdkdkdkd123789@gmail.com">
+                                                    <button type="button" className="submit-btn">Submit</button>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>

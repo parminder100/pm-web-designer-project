@@ -35,7 +35,9 @@ const Header = () =>{
                     <div className="row header-row">
                         <div className="col-sm-6 left-column">
                             <div>
-                                <img className='logo' src={registered_logo} alt="registered-logo" />
+                                <a href="/">
+                                    <img className='logo' src={registered_logo} alt="registered-logo" />
+                                </a>
                                 <p className='company-name'>pm web designer pvt. ltd.</p>
                             </div>
                         </div>

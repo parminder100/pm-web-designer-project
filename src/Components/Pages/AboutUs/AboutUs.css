@@ -7,6 +7,30 @@
     background-size: cover;
     background-position: center center;
 }
+.aboutus-page-our-company-section{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.our_journey_section_content{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.our_mission_section_content{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.why_choose_us_section_content{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.animate-slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 .aboutus-dot-bg{
     position: absolute;
     bottom: 10px;

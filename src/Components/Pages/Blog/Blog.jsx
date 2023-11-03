@@ -1,7 +1,7 @@
 import Header from "../../Header/Header";
 import { BlogData } from "../../BlogData/BlogData";
 import BlogModal from "../../BlogModal/BlogModal";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Footer from "../../Footer/Footer";
 import aboutus_dot from "../../../assets/img/aboutus_dot.png";
 import aboutus_bannerwave from "../../../assets/img/aboutus_bannerwave.png";
@@ -32,6 +32,49 @@ const Blog = () =>{
     }, []);
 
     const filterBlogData = BlogData.filter((item)=> item.id >=4);
+
+
+    // For section display on scroll
+    // eslint-disable-next-line
+    const sectionRefs = {
+        // Add refs for all your sections
+        blogSection: useRef(),
+    };
+
+    useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0, // Adjust this threshold as needed
+        };
+    
+        const callback = (entries) => {
+          entries.forEach((entry) => {
+            const { target, isIntersecting } = entry;
+    
+            if (isIntersecting) {
+              target.classList.add('animate-slide-up');
+            } else {
+              target.classList.remove('animate-slide-up');
+            }
+          });
+        };
+    
+        const observer = new IntersectionObserver(callback, options);
+    
+        // Observe all the section elements
+        Object.keys(sectionRefs).forEach((sectionKey) => {
+          const section = sectionRefs[sectionKey].current;
+          if (section) {
+            observer.observe(section);
+          }
+        });
+    
+        return () => {
+          // Clean up the observer when the component unmounts
+          observer.disconnect();
+        };
+    }, [sectionRefs]);
     return(
         <>
             <Header />
@@ -46,7 +89,7 @@ const Blog = () =>{
                     </div>
                 </div>
             </section>
-            <section className="blog-section">
+            <section className="blog-section" ref={sectionRefs.blogSection}>
                 <div className="container">
                     <div className="row blog-main-content-row">
                         {

@@ -16,6 +16,13 @@
 }
 .contactus-bg{
     background-color: #eae9e9;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.animate-slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 .contactus_container{
     padding-top: 130px;
@@ -60,7 +67,7 @@
     font-size: 25px;
 }
 .map-marker-icon{
-    margin-bottom: 169px;
+    margin-bottom: 146px;
 }
 .twitter-icon{
     width: 30px;
@@ -110,12 +117,14 @@
     right: 0px;
     bottom: 0px;
     opacity: 0.8;
+    width: 128px;
 }
 .circle-contactus-image{
     position: absolute;
     right: 78px;
     bottom: 56px;
     opacity: 0.8;
+    width: 81px;
 }
 .submit-btn{
     background-color: #000;
@@ -124,6 +133,10 @@
     border-radius: 10px;
     border-width: 0px;
     font-weight: 500;
+}
+.contact-info-container a{
+    color: unset;
+    text-decoration: none;
 }
 
 
@@ -166,5 +179,28 @@
     }
     .fa-mobile-phone{
         font-size: 25px;
+    }
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .map-marker-icon {
+        margin-bottom: 122px;
+    }
+    .contactus-image{
+        width: 110px;
+    }
+    .circle-contactus-image {
+        right: 68px;
+        bottom: 49px;
+        width: 70px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .map-marker-icon {
+        margin-bottom: 123px;
     }
 }

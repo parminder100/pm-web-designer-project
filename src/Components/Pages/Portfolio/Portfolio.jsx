@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PortfolioData } from "../../PortfolioData/PortfolioData";
 import PortfolioModal from "../../PortfolioModal/PortfolioModal";
 import aboutus_dot from "../../../assets/img/aboutus_dot.png";
@@ -57,6 +57,49 @@ const Portfolio = () =>{
 
     const filteredItems = selectedLanguage === "all" ? filteredPortfolioData(handleSearch) : filterProjectByLanguage(PortfolioData, selectedLanguage);
 
+
+    // For section display on scroll
+    // eslint-disable-next-line
+    const sectionRefs = {
+        // Add refs for all your sections
+        portfolioSection: useRef(),
+    };
+
+    useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1, // Adjust this threshold as needed
+        };
+    
+        const callback = (entries) => {
+          entries.forEach((entry) => {
+            const { target, isIntersecting } = entry;
+    
+            if (isIntersecting) {
+              target.classList.add('animate-slide-up');
+            } else {
+              target.classList.remove('animate-slide-up');
+            }
+          });
+        };
+    
+        const observer = new IntersectionObserver(callback, options);
+    
+        // Observe all the section elements
+        Object.keys(sectionRefs).forEach((sectionKey) => {
+          const section = sectionRefs[sectionKey].current;
+          if (section) {
+            observer.observe(section);
+          }
+        });
+    
+        return () => {
+          // Clean up the observer when the component unmounts
+          observer.disconnect();
+        };
+    }, [sectionRefs]);
+
     return(
         <>
             <Header />
@@ -71,7 +114,7 @@ const Portfolio = () =>{
                     </div>
                 </div>
             </section>
-            <section className="blog-section">
+            <section className="blog-section" ref={sectionRefs.portfolioSection}>
                 <div className="container">
                     <div className="row g-3 align-items-center justify-content-center mb-5">
                         <div className="col-auto">
@@ -98,6 +141,10 @@ const Portfolio = () =>{
                                             <p className="project-name portfolio-project-name">{item.projectName}</p>
                                             <p className="project-description">{item.projectDescription}</p>
                                             <p className="project-live-link"><a href={item.projectLiveLink} target="_blank" rel="noopener noreferrer">Live Preview</a></p>
+                                            <div className="language-image-wrapper">
+                                                <img src={item.languageImage} alt="language-icon" />
+                                                <p>{item.languageUsed}</p>
+                                            </div>
                                             <button className="readmore-btn" onClick={()=>handlePortfolioModalOpen(item)}>Read More</button>
                                         </div>
                                     </div>

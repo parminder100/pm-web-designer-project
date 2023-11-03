@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import "../BlogModal/BlogModal.css";
 import { useEffect } from 'react';
-// import { BlogModalData } from '../BlogModalData/BlogModalData';
 
 const BlogModal = ({show, onClose, selectedBlog}) =>{
 

@@ -5,6 +5,8 @@ import roll_a_dice_game_project from "../../assets/img/roll_a_dice_game_project.
 import guess_the_number_project from "../../assets/img/guess_the_number_project.png";
 import bankist_project from "../../assets/img/bankist_project.png";
 import mapty_project from "../../assets/img/mapty_project.png";
+import react_logo from "../../assets/img/react_logo.png";
+import javascript_logo from "../../assets/img/javascript_logo.png";
 
 export const PortfolioData = [
     {
@@ -14,6 +16,7 @@ export const PortfolioData = [
         projectDescription: "Dive into PMWebDesigner's Pokedex - where Pokémon enthusiasts find a collection of species info and characteristics at their fingertips.",
         projectLiveLink: "https://pmwebdesigner.com/pokedex/",
         languageUsed: "React",
+        languageImage: react_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Explore the Pokedex',
@@ -26,6 +29,7 @@ export const PortfolioData = [
         projectDescription: "AJ Consulting: Where financial aspirations take root - offering a spectrum of loans, EMI calculator, and expert guidance for your borrowing needs.",
         projectLiveLink: "https://ajconsulting.in/",
         languageUsed: "Javascript",
+        languageImage: javascript_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Unlock Your Financial Potential with ajConsulting',
@@ -38,6 +42,7 @@ export const PortfolioData = [
         projectDescription: "Explore real-time global weather forecasts beautifully visualized on Weather24 by PMWebDesigner. Stay informed and prepared worldwide.",
         projectLiveLink: "https://pmwebdesigner.com/weather24/",
         languageUsed: "React",
+        languageImage: react_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Weather24: Your Comprehensive Global Weather Information Hub',
@@ -61,6 +66,7 @@ export const PortfolioData = [
         projectDescription: "Experience online dice rolling excitement in the 'Roll a Dice Game,' perfect for gaming and decision-making fun.",
         projectLiveLink: "https://pmwebdesigner.com/roll-a-dice-game/",
         languageUsed: "Javascript",
+        languageImage: javascript_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Roll a Dice Game - Embrace Randomness and Fun Online!',
@@ -73,6 +79,7 @@ export const PortfolioData = [
         projectDescription: "Challenge your intuition in the captivating 'Guess the Number Game' for an engaging gaming experience.",
         projectLiveLink: "https://pmwebdesigner.com/guess-the-number-game/",
         languageUsed: "Javascript",
+        languageImage: javascript_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Guess the Number Game - Test Your Intuition!',
@@ -85,6 +92,7 @@ export const PortfolioData = [
         projectDescription: "Bankist: Simplify your finances with transactions, loans, transfers, and account management in one user-centric hub.",
         projectLiveLink: "https://pmwebdesigner.com/bankist/",
         languageUsed: "Javascript",
+        languageImage: javascript_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Bankist - Streamlining Your Financial World',
@@ -97,6 +105,7 @@ export const PortfolioData = [
         projectDescription: "Mapty is a versatile platform enabling users to mark their locations and track activities like cycling and running.",
         projectLiveLink: "https://pmwebdesigner.com/mapty-app/",
         languageUsed: "Javascript",
+        languageImage: javascript_logo,
 
         // Portfolio Modal Data
         portfolioModalHeading: 'Mapty - Explore Your Active Adventures',

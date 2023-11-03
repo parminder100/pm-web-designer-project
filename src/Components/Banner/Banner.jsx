@@ -38,6 +38,7 @@ import Footer from "../Footer/Footer";
 import { useState } from "react";
 import PortfolioModal from "../PortfolioModal/PortfolioModal";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Banner = () =>{
     const [showModal, setShowModal] = useState(false);
@@ -113,6 +114,53 @@ const Banner = () =>{
         // window.scrollTo(0, 0);
         navigate("/portfolio");
     }
+
+    // eslint-disable-next-line
+    const sectionRefs = {
+        // Add refs for all your sections
+        aboutOurCompanySection: useRef(),
+        workProcessSection: useRef(),
+        servicesSection: useRef(),
+        portfolioSection: useRef(),
+        testimonialSection: useRef(),
+        blogSection: useRef(),
+    };
+
+    useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1, // Adjust this threshold as needed
+        };
+    
+        const callback = (entries) => {
+          entries.forEach((entry) => {
+            const { target, isIntersecting } = entry;
+    
+            if (isIntersecting) {
+              target.classList.add('animate-slide-up');
+            } else {
+              target.classList.remove('animate-slide-up');
+            }
+          });
+        };
+    
+        const observer = new IntersectionObserver(callback, options);
+    
+        // Observe all the section elements
+        Object.keys(sectionRefs).forEach((sectionKey) => {
+          const section = sectionRefs[sectionKey].current;
+          if (section) {
+            observer.observe(section);
+          }
+        });
+    
+        return () => {
+          // Clean up the observer when the component unmounts
+          observer.disconnect();
+        };
+    }, [sectionRefs]);
+      
     return(
         <>
             {/* Header Start */}
@@ -149,7 +197,7 @@ const Banner = () =>{
                 {/* Banner End */}
 
                 {/* About Our Company Section Start */}
-                <section className="about-our-company-section">
+                <section className="about-our-company-section" ref={sectionRefs.aboutOurCompanySection}>
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-6">
@@ -193,7 +241,7 @@ const Banner = () =>{
                 {/* About Our Company Section End */}
 
                 {/* Work Process Start */}
-                    <section className="work-process-section">
+                    <section className="work-process-section" ref={sectionRefs.workProcessSection}>
                         <div className="container">
                             <div className="row justify-content-center">
                                 <div className="col-sm-8">
@@ -240,7 +288,7 @@ const Banner = () =>{
                 {/* Work Process End */}
 
                 {/* What Services Section Start */}
-                <section className="what-we-offer-section">
+                <section className="what-we-offer-section" ref={sectionRefs.servicesSection}>
                     <img className="about-service-water-mark1-image" src={about_service_water_mark1} alt="about-service-water-mark" />
                     <img className="about-service-water-mark2-image" src={about_service_water_mark2} alt="about-service-water-mark2" />
                     <div className="container">
@@ -282,7 +330,7 @@ const Banner = () =>{
                 {/* What Services Section End */}
 
                 {/* Our Portfolio Start */}
-                <section className="our-portfolio-section">
+                <section className="our-portfolio-section" ref={sectionRefs.portfolioSection}>
                     <img className="project-section-bg1" src={project_section_bg1} alt="project-section-bg1" />
                     <img className="project-section-bg2" src={project_section_bg2} alt="project-section-bg2" />
                     <div className="container">
@@ -311,6 +359,10 @@ const Banner = () =>{
                                                 <p className="project-name">{item.projectName}</p>
                                                 <p className="project-description">{item.projectDescription}</p>
                                                 <p className="project-live-link"><a href={item.projectLiveLink} target="_blank" rel="noopener noreferrer">Live Preview</a></p>
+                                                <div className="language-image-wrapper">
+                                                    <img src={item.languageImage} alt="language-icon" />
+                                                    <p>{item.languageUsed}</p>
+                                                </div>
                                                 <button className="readmore-btn" onClick={()=>handlePortfolioModalOpen(item)}>Read More</button>
                                             </div>
                                         </div>
@@ -326,7 +378,7 @@ const Banner = () =>{
                 {/* Our Portfolio End */}
 
                 {/* Testimonial Start */}
-                <section className="testimonial-section">
+                <section className="testimonial-section" ref={sectionRefs.testimonialSection}>
                     <img className="project-section-bg1 testimonial-section-bg1" src={project_section_bg1} alt="project-section-bg1" />
                     <img className="project-section-bg2 testimonial-section-bg2" src={project_section_bg2} alt="project-section-bg2" />
                     <div className="container">
@@ -373,7 +425,7 @@ const Banner = () =>{
                 {/* Testimonial End */}
 
                 {/* Blog Start */}
-                <section className="blog-section">
+                <section className="blog-section" ref={sectionRefs.blogSection}>
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-sm-8">

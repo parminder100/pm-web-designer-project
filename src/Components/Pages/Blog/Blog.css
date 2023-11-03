@@ -7,6 +7,15 @@
     background-size: cover;
     background-position: center center;
 }
+.blog-section{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 5s;
+}
+.animate-slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 
 
 /* Media Queries Start */

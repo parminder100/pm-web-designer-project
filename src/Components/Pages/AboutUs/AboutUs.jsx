@@ -6,8 +6,55 @@ import aboutus_image from "../../../assets/img/aboutus_image.jpg";
 import our_journey_image from "../../../assets/img/our_journey_image.jpg";
 import our_mission_image from "../../../assets/img/our_mission_image.jpg";
 import Footer from "../../Footer/Footer";
+import { useEffect, useRef } from 'react';
 
 const AboutUs = () =>{
+    // eslint-disable-next-line
+    const sectionRefs = {
+        // Add refs for all your sections
+        aboutPageRightSection: useRef(),
+        aboutPageLeftSection: useRef(),
+        ourJourneyLeftSection: useRef(),
+        ourJourneyRightSection: useRef(),
+        ourMissionRightSection: useRef(),
+        ourMissionLeftSection: useRef(),
+        whyChooseUsSection: useRef(),
+    };
+
+    useEffect(() => {
+        const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1, // Adjust this threshold as needed
+        };
+
+        const callback = (entries) => {
+        entries.forEach((entry) => {
+            const { target, isIntersecting } = entry;
+
+            if (isIntersecting) {
+            target.classList.add('animate-slide-up');
+            } else {
+            target.classList.remove('animate-slide-up');
+            }
+        });
+        };
+
+        const observer = new IntersectionObserver(callback, options);
+
+        // Observe all the section elements
+        Object.keys(sectionRefs).forEach((sectionKey) => {
+        const section = sectionRefs[sectionKey].current;
+        if (section) {
+            observer.observe(section);
+        }
+        });
+
+        return () => {
+        // Clean up the observer when the component unmounts
+        observer.disconnect();
+        };
+    }, [sectionRefs]);
     return(
         <>
             <Header />
@@ -26,7 +73,7 @@ const AboutUs = () =>{
                 <section className="aboutus-company-section">
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col aboutus-page-our-company-section" ref={sectionRefs.aboutPageLeftSection}>
                                 <div>
                                     <p className="about-our-company-heading our-journey-title mb-4">-About Our Company-</p>
                                     <p className="aboutus-company-description">
@@ -47,17 +94,17 @@ const AboutUs = () =>{
                                     </p>
                                 </div>
                             </div>
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col aboutus-page-our-company-section" ref={sectionRefs.aboutPageRightSection}>
                                 <div>
                                     <img className="w-100" src={aboutus_image} alt="aboutus_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-6 aboutus-col our-journey-image">
+                            <div className="col-sm-6 aboutus-col our-journey-image our_journey_section_content" ref={sectionRefs.ourJourneyLeftSection}>
                                 <div>
                                     <img className="w-100" src={our_journey_image} alt="our_journey_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-6 aboutus-col our-journey-content">
+                            <div className="col-sm-6 aboutus-col our-journey-content our_journey_section_content" ref={sectionRefs.ourJourneyRightSection}>
                                 <p className="testimonial-section-title blog-section-title our-journey-title mb-4">-Our Journey-</p>
                                 <p className="aboutus-company-description">
                                     PM Web Development started as a modest team of passionate developers who 
@@ -74,7 +121,7 @@ const AboutUs = () =>{
                                     the curve.
                                 </p>
                             </div>
-                            <div className="col-sm-6 aboutus-col">
+                            <div className="col-sm-6 aboutus-col our_mission_section_content" ref={sectionRefs.ourMissionLeftSection}>
                                 <p className="section-title our-journey-title mb-4">-Our Mission-</p>
                                 <p className="aboutus-company-description">
                                     At the core of our ethos lies a simple yet profound mission: to empower 
@@ -88,12 +135,12 @@ const AboutUs = () =>{
                                     not only survive but thrive in this dynamic ecosystem.
                                 </p>
                             </div>
-                            <div className="col-sm-6 aboutus-col our-mission-image">
+                            <div className="col-sm-6 aboutus-col our-mission-image our_mission_section_content" ref={sectionRefs.ourMissionRightSection}>
                                 <div>
                                     <img className="w-100" src={our_mission_image} alt="our_mission_image" />
                                 </div>
                             </div>
-                            <div className="col-sm-12 why-choose-us-content">
+                            <div className="col-sm-12 why-choose-us-content why_choose_us_section_content" ref={sectionRefs.whyChooseUsSection}>
                                 <p className="portfolio-section-title our-journey-title mb-4">-Why Choose Us?-</p>
                                 <ul className="why-choose-us-list">
                                     <li>

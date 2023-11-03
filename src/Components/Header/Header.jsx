@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import registered_logo from "../../assets/img/registered_logo.png"; 
 import "../Header/Header.css";
+import { Link } from 'react-router-dom';
 
 const Header = () =>{
     const [scrolled, setScrolled] = useState(false);
@@ -50,19 +51,24 @@ const Header = () =>{
                                     <div className={`navbar-collapse ${isNavbarOpen ? 'show' : 'collapse'}`}>
                                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li className="nav-item">
-                                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                            {/* <a className="nav-link active" aria-current="page" href="/">Home</a> */}
+                                            <Link className="nav-link active" to="/">Home</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/aboutus">About us</a>
+                                            {/* <a className="nav-link" href="/aboutus">About us</a> */}
+                                            <Link className="nav-link" to="/aboutus">About us</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/portfolio">Portfolio</a>
+                                            {/* <a className="nav-link" href="/portfolio">Portfolio</a> */}
+                                            <Link className="nav-link" to="/portfolio">Portfolio</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/blog">Blog</a>
+                                            {/* <a className="nav-link" href="/blog">Blog</a> */}
+                                            <Link className="nav-link" to="/blog">Blog</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/contactus">Contact us</a>
+                                            {/* <a className="nav-link" href="/contactus">Contact us</a> */}
+                                            <Link className="nav-link" to="/contactus">Contact us</Link>
                                         </li>
                                     </ul>
                                     </div>

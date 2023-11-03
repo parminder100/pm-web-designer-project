@@ -1,9 +1,10 @@
-import Route from './Components/Pages/Routes/Route';
+import Pages from "./Components/Pages/Routes/Route";
+
 
 function App() {
   return (
       <>
-        <Route />
+        <Pages />
       </>
   );
 }

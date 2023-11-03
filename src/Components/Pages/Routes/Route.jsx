@@ -13,7 +13,7 @@ const Pages = () =>{
                     <Route path="/" element={<Banner />} />
                     <Route path="/aboutus" element={<AboutUs />} />
                     <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/Blog" element={<Blog />} />
+                    <Route path="/blog" element={<Blog />} />
                     <Route path="/contactus" element={<ContactUs />} />
                 </Routes>
             </BrowserRouter>

@@ -2,7 +2,6 @@ import "../Banner/Banner.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import Header from "../Header/Header";
-// import banner_skills_image from "../../assets/img/banner_skills_image.png";
 import banner_skills_image from "../../assets/img/banner_skill.png";
 import banner_spring1 from "../../assets/img/banner_spring1.png";
 import banner_spring2 from "../../assets/img/banner_spring2.png";
@@ -39,6 +38,7 @@ import { useState } from "react";
 import PortfolioModal from "../PortfolioModal/PortfolioModal";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const Banner = () =>{
     const [showModal, setShowModal] = useState(false);
@@ -243,7 +243,7 @@ const Banner = () =>{
                                     <li>User-centered design for intuitive navigation.</li>
                                     <li>Cutting-edge solutions to enhance your online reach.</li>
                                 </ul>
-                                <button className="know-more-btn"><a href="/aboutus">know more</a></button>
+                                <button className="know-more-btn"><Link to="/aboutus">know more</Link></button>
                             </div>
                             <div className="col-sm-6">
                                 <div className="row">

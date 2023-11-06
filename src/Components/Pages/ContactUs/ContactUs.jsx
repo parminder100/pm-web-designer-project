@@ -60,6 +60,27 @@ const ContactUs = () =>{
           observer.disconnect();
         };
     }, [sectionRefs]);
+
+    // Prevent user from right click
+    useEffect(() => {
+        const handleContextMenu = (e) => {
+            e.preventDefault();
+        };
+    
+        const handleKeyDown = (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        };
+    
+        window.addEventListener('contextmenu', handleContextMenu);
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+            window.removeEventListener('contextmenu', handleContextMenu);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
     return(
         <>
             <Header />

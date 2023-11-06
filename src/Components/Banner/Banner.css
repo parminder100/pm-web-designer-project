@@ -11,6 +11,12 @@
     padding-bottom: 30px;
     position: relative;
 }
+body {
+    user-select: none; /* Disable text selection */
+}
+img {
+    -webkit-user-drag: none; /* For Safari */
+}
 .know-more-btn a{
     color:unset;
     text-decoration: none;

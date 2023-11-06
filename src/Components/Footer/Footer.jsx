@@ -43,6 +43,8 @@ const Footer = () =>{
         observer.disconnect();
         };
     }, [sectionRefs]);
+
+    const currentYear = new Date().getFullYear();
     return(
         <>
             <footer ref={sectionRefs.footerSection}>
@@ -97,7 +99,7 @@ const Footer = () =>{
                     <div className="container">
                         <div className="row footer-row">
                             <div className="col-sm-6">
-                                <p className="copy-right">© Copyright 2023 by PM Web Designer Private Limited</p>
+                                <p className="copy-right">© Copyright {currentYear} by PM Web Designer Private Limited</p>
                             </div>
                             <div className="col-sm-6">
                                 <ul className="privay-policy">
